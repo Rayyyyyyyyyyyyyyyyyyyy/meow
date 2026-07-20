@@ -1,34 +1,29 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const base = new URL(`${protocol}://${host}`);
-  const title = "貓語 Meowish｜貓咪翻譯機";
-  const description = "看懂貓咪的叫聲、肢體語言和小情緒。選兩個線索，馬上翻譯主子想說的話。";
+const siteUrl = "https://rayyyyyyyyyyyyyyyyyyyy.github.io/meow/";
+const title = "貓語行為觀察室｜有依據的貓咪行為翻譯";
+const description = "從姿勢、耳朵、尾巴、眼睛與情境，判讀貓咪較可能的情緒狀態、適合的安全回應與健康警訊。";
 
-  return {
-    metadataBase: base,
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  icons: { icon: "/meow/favicon.svg", shortcut: "/meow/favicon.svg" },
+  openGraph: {
     title,
     description,
-    icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      images: [{ url: new URL("/og.png", base).toString(), width: 1200, height: 630, alt: "貓咪翻譯機" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [new URL("/og.png", base).toString()],
-    },
-  };
-}
+    type: "website",
+    url: siteUrl,
+    images: [{ url: `${siteUrl}og.png`, width: 1200, height: 630, alt: "貓語行為觀察室" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [`${siteUrl}og.png`],
+  },
+};
 
 export default function RootLayout({
   children,
