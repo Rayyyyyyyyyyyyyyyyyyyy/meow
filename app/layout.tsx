@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl = "https://rayyyyyyyyyyyyyyyyyyyy.github.io/meow/";
-const title = "貓語行為觀察室｜有依據的貓咪行為翻譯";
-const description = "從姿勢、耳朵、尾巴、眼睛與情境，判讀貓咪較可能的情緒狀態、適合的安全回應與健康警訊。";
+const title = "貓語翻譯機｜用訊號組合讀懂你的貓";
+const description = "從姿勢、耳朵、尾巴、臉部與情境組合，判讀貓咪較可能的狀態，查行為百科並建立你家貓的日常基準線。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description,
     type: "website",
     url: siteUrl,
-    images: [{ url: `${siteUrl}og.png`, width: 1200, height: 630, alt: "貓語行為觀察室" }],
+    images: [{ url: `${siteUrl}og.png`, width: 1731, height: 909, alt: "貓語翻譯機：你的貓到底在說什麼？" }],
   },
   twitter: {
     card: "summary_large_image",
